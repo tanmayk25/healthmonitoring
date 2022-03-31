@@ -1,0 +1,86 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<section class="explore-work" id="explore" style="margin-top: 20px;">
+      <div class="container expanded">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="section-heading">
+<!--                     	<h1>Greetings {{request.user}} </h1><br>
+ -->                  </div>
+              </div>
+              <section class="explore-work" id="explore">
+                    <div class="container expanded">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-heading">
+                                    <h2>Explore Your Latest Readings<br><em>Health is Wealth</em>.</h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="left-image">
+                                    <img src="../../static/images/bannerdash.png" alt="Health is Wealth" class="hidden-xs">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-content">
+                                    <div class='data temperature' id='env_temperature'>
+                                    <div class='side-by-side icon'>
+                                        <img src="../../static/images/temp.png" height="70px">
+                                    </div>
+                                    <div class='side-by-side text'>Room Temperature</div>
+                                    <div class='side-by-side reading'>
+                                    <p>{{environment_temperature}}</p>
+                                    <span class='superscript'>&deg;F</span></div>
+                                    </div>
+                                    
+                                    <div class='data humidity' id='humidity' >
+                                    <div class='side-by-side icon'>
+                                        <img src="../../static/images/humidity.png" height="70px">
+                                    </div>
+                                    <div class='side-by-side text'>Room Humidity</div>
+                                    <div class='side-by-side reading'>
+                                    <p>{{humidity}}</p>
+                                    <span class='superscriptPercentage'>%</span></div>
+                                    </div>
+                                    
+                                    <div class='data Body Temperature' id='body_temperature'>
+                                    <div class='side-by-side icon'>
+                                        <img src="../../static/images/temp-body.png" height="70px">
+                                    </div>
+                                    <div class='side-by-side text'>Body Temperature</div>
+                                    <div class='side-by-side reading'>
+                                    <p>{{body_temperature}}</p>  
+                                    <span class='superscript'>&deg;F</span></div>
+                                    </div>
+
+                                    <div class='data Blood Oxygen' id='blood_oxygen'>
+                                    <div class='side-by-side icon'>
+                                        <img src="../../static/images/blood-oxygen.png" height="70px" >
+                                    </div>
+                                    <div class='side-by-side text'>Blood Oxygen</div>
+                                    <div class='side-by-side reading'>
+                                    <p>{{blood_oxygen}}</p>
+                                    <span class='superscriptPercentage'>%</span></div>
+                                    </div>
+                                   
+                                    <div class='data Heart Rate' id='heart_rate'>
+                                    <div class='side-by-side icon'>
+                                        <img src="../../static/images/heart-rate.png" width ="70px" height="70px" style="margin-right = 10px;">
+                                    </div>
+                                    <div class='side-by-side text'>Heart Rate</div>
+                                    <div class='side-by-side reading'>
+                                    <p>{{heart_rate}}</p>
+                                    <span class='superscriptBPM'>BPM</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+              </div>
+            </div>
+  </section>
+{% endblock %}

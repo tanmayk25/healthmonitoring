@@ -1,0 +1,58 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<section class="explore-work" id="explore" style="margin-top: 20px;">
+      <div class="container expanded">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="section-heading">
+                  </div>
+              </div>
+              <section class="explore-work" id="explore">
+                    <div class="container expanded">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-heading">
+                                    <h2>Historic Data<br><em>A stitch in time saves nine</em>.</h2>
+                                </div>
+                            </div>
+              <div class="col-lg-12">
+                  <div class="right-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="mdb-color darken-3">
+                                    <tr>
+                                        <th style="color:black; font-family:helvetica; font-size:20px;"><center>Heart rate</center></th>
+                                        <th style="color:black; font-family:helvetica; font-size:20px;"><center>Body Temperature</center></th>
+                                        <th style="color:black; font-family:helvetica; font-size:20px;"><center>Humidity</center></th>
+                                        <th style="color:black; font-family:helvetica; font-size:20px;"><center>Environment Temperature</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                    {% for value in result %}
+                                    <tr>
+                                        <td style="color:black; font-family:helvetica; font-size:15px;">
+                                          <center>{{value.0}}</center>
+                                        </td>
+                                        <td style="color:black; font-family:helvetica; font-size:15px;">
+                                          <center>{{value.1}}</center>
+                                        </td>
+                                        <td style="color:black; font-family:helvetica; font-size:15px;">
+                                          <center>{{value.2}}</center>
+                                        </td>
+                                        <td style="color:black; font-family:helvetica; font-size:15px;">
+                                          <center>{{value.3}}</center>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        </section>
+  <br>
+
+{% endblock %}

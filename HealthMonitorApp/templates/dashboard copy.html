@@ -1,0 +1,72 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<section class="explore-work" id="explore" style="margin-top: 20px;">
+      <div class="container expanded">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="section-heading">
+<!--                     	<h1>Greetings {{request.user}} </h1><br>
+ -->                  </div>
+              </div>
+              <div class="col-lg-12">
+                  <div class='container'>
+                  <section class="reading">
+                      <div class='data temperature'>
+                      <div class='side-by-side icon'>
+                          <img src="../../static/images/temp.png" height="70px">
+                      </div>
+                      <div class='side-by-side text'>Room Temperature</div>
+                      <div class='side-by-side reading'>
+                      <p>98</p>
+                      <span class='superscript'>&deg;C</span></div>
+                      </div>
+                      
+                      <div class='data humidity'>
+                      <div class='side-by-side icon'>
+                          <img src="../../static/images/humidity.png" height="70px">
+                      </div>
+                      <div class='side-by-side text'>Room Humidity</div>
+                      <div class='side-by-side reading'>
+                      <p>98</p>
+                      <span class='superscript'>%</span></div>
+                      </div>
+                      
+                      <div class='data Body Temperature'>
+                      <div class='side-by-side icon'>
+                          <img src="../../static/images/temp-body.png" height="70px">
+                      </div>
+                      <div class='side-by-side text'>Body Temperature</div>
+                      <div class='side-by-side reading'>
+                      <p>98</p>  
+                      <span class='superscript'>&deg;C</span></div>
+                      </div>
+
+                      <div class='data Blood Oxygen'>
+                      <div class='side-by-side icon'>
+                          <img src="../../static/images/blood-oxygen.png" height="70px" >
+                      </div>
+                      <div class='side-by-side text' >Blood Oxygen</div>
+                      <div class='side-by-side reading'>
+                      <p>98</p>
+                      <span class='superscript'>%</span></div>
+                      </div>
+                     
+                      <div class='data Heart Rate'>
+                      <div class='side-by-side icon'>
+                          <img src="../../static/images/heart-rate.png" width ="70px" height="70px" style="margin-right = 10px;">
+                      </div>
+                      <div class='side-by-side text'>Heart Rate</div>
+                      <div class='side-by-side reading'>
+                      <p>98</p>
+                      <span class='superscript'>BPM</span></div>
+                      </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+
+  </section>
+{% endblock %}

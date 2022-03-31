@@ -1,0 +1,86 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<div id="mycarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#mycarousel" data-slide-to="1"></li>
+    <li data-target="#mycarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item">
+        <img  src="../../static/images/slider1.png" data-color="lightblue" alt="First Image" width="2000" height="1900">
+    </div>
+    <div class="item">
+        <img src="../../static/images/slider2.png" data-color="firebrick" alt="Second Image" width="2000" height="1900">
+    </div>
+    <div class="item">
+        <img  src="../../static/images/slider3.png" data-color="violet" alt="Third Image" width="2000" height="1900">
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<script>
+var $item = $('.carousel .item'); 
+var $wHeight = $(window).height();
+$item.eq(0).addClass('active');
+$item.height($wHeight); 
+$item.addClass('full-screen');
+
+$('.carousel img').each(function() {
+  var $src = $(this).attr('src');
+  var $color = $(this).attr('data-color');
+  $(this).parent().css({
+    'background-image' : 'url(' + $src + ')',
+    'background-color' : $color
+  });
+  $(this).remove();
+});
+
+$(window).on('resize', function (){
+  $wHeight = $(window).height();
+  $item.height($wHeight);
+});
+
+$('.carousel').carousel({
+  interval: 6000,
+  pause: "false"
+});
+</script>
+  <br>
+  <section class="explore-work" id="explore">
+      <div class="container expanded">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="section-heading">
+                      <h2>Explore Our Latest<br><em>IoT Devices</em>.</h2>
+                  </div>
+              </div>
+              <div class="col-lg-12">
+                <div>
+                  <p>
+                    Centuries ago people died primarily due to wars, epidemics, low living standards, and a similar low level of medical care. However, times have changed, and now chronic diseases are the main threat to longevity. Technology developments are not the main reason for longer life spans, though it has helped. But technology is not a magic pill to cure chronic diseases. <!--Source: https://cprimestudios.com/blog/5-reasons-build-health-monitoring-system-hospital-->
+The reality of modern medicine is that there are many more patients than doctors who are able to help them. The recent pandemic has proven that the world isn’t ready for emergencies of that sort and that there is a global need for qualified doctors. The technology can support the medical staff available and lighten the burden.
+It is important to learn to patrol your own health, looking for any early warning sign that something is amiss. 
+</p><p>A Health Monitoring System (HMS) is a sophisticated technology and an alternative to the traditional management of patients and their health. It consists of a wireless device with sensors that are paired with an application for a user to access their medical information.
+It monitors critical health parameters like heart rate, blood oxygen level, temperature, ecg and much more. All using just a single device. The readings are displayed on an easy to use web portal. The web portal displays the latest as well has the historic readings for the user. 
+So what are you waiting for? Sign up and get the device now. You know what they say, it's better to be safe than sorry.</p>
+<br>
+                </div>
+              </div>
+  </section>
+  <br>
+ 
+{% endblock %}

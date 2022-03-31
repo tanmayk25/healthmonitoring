@@ -1,0 +1,241 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<section class="explore-work" id="explore" style="margin-top: 20px;">
+      <div class="container expanded">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="section-heading">
+                  </div>
+              </div>
+              <section class="explore-work" id="explore">
+                    <div class="container expanded">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-heading">
+                                    <h2>He who has health has hope<br><em>and he who has hope, has everything</em>.</h2>
+                                </div>
+                            </div>
+              <div class="col-lg-12">
+                  <div class="right-content">
+                      <ul>
+                          <li>
+                              <h4>Heart Rate</h4>
+                              <div class="chartHeart">
+                                 <canvas class="heartRate" id="heartRate"></canvas>
+                              </div>
+                          </li>
+                          <li>
+                              <h4>ECG</h4>
+                              <div class="chartECG">
+                                 <canvas class="ECG" id="ECG"></canvas>
+                              </div>
+                              
+                          </li>
+                          <li>
+                              <h4>Body Temperature</h4>
+                              <div class="chartBody">
+                                 <canvas class="bodyTemp" id="bodyTemp"></canvas>
+                              </div>
+                          </li>
+                          <li>
+                              <h4>Blood Oxygen </h4>
+                              <div class="chartBlood">
+                                 <canvas class="bloodOxygen" id="bloodOxygen" ></canvas>
+                              </div>
+                          <li>
+                              <h4>Humidity</h4>
+                              <div class="chartHumidity">
+                                 <canvas class="Humidity" id="Humidity"></canvas>
+                              </div>
+                              
+                          </li>
+                          <li>
+                              <h4>Environmental Temperature</h4>
+                              <div class="chartEnviron">
+                                 <canvas class="Environment" id="Environment" ></canvas>
+                              </div>
+                          </li>
+                               <script>
+                                      const labels = [ {% for value in created %} '{{ value }}', {% endfor %}]
+                                      const labels_ecg = [ {% for i in labels %} '{{ i }}', {% endfor %}]
+                                      const data = {
+                                        labels: labels,
+                                        datasets: [{
+                                          label: 'Heart Rate',
+                                          backgroundColor: 'rgb(255, 99, 132)',
+                                          borderColor: 'rgb(255, 99, 132)',
+                                          data: [{% for value in heart_rate %} '{{ value }}', {% endfor %}],
+                                        }]
+                                      };
+                                      const data2 = {
+                                        labels: labels,
+                                        datasets: [{
+                                          label: 'Body Rate',
+                                          backgroundColor: 'rgb(255, 99, 132)',
+                                          borderColor: 'rgb(255, 99, 132)',
+                                          data: [{% for value in body_temperature %} '{{ value }}', {% endfor %}],
+                                        }]
+                                      };
+                                      const data3 = {
+                                        labels: labels,
+                                        datasets: [{
+                                          label: 'Humidity',
+                                          backgroundColor: 'rgb(255, 99, 132)',
+                                          borderColor: 'rgb(255, 99, 132)',
+                                          data: [{% for value in humidity %} '{{ value }}', {% endfor %}],
+                                        }]
+                                      };
+                                      const data4 = {
+                                        labels: labels,
+                                        datasets: [{
+                                          label: 'Environmental Temperature',
+                                          backgroundColor: 'rgb(255, 99, 132)',
+                                          borderColor: 'rgb(255, 99, 132)',
+                                          data: [{% for value in environment_temperature %} '{{ value }}', {% endfor %}],
+                                        }]
+                                      };
+                                      const data5 = {
+                                        labels: labels_ecg,
+                                        datasets: [{
+                                          label: 'ECG',
+                                          backgroundColor: 'rgb(255, 99, 132)',
+                                          borderColor: 'rgb(255, 99, 132)',
+                                          data: [{% for value in list_val %} '{{ value }}', {% endfor %}],
+                                        }]
+                                      };  
+                                      const data6 = {
+                                        labels: labels,
+                                        datasets: [{
+                                          label: 'Blood Oxygen',
+                                          backgroundColor: 'rgb(255, 99, 132)',
+                                          borderColor: 'rgb(255, 99, 132)',
+                                          data: [{% for value in blood_oxygen %} '{{ value }}', {% endfor %}],
+                                        }]
+                                      };                                     
+                                        const config = {
+                                        type: 'line',
+                                        data: data,
+                                        options: {
+                                          scales: {
+                                              x: {
+                                                ticks: {
+                                                  //option 2, use callback to change labels to empty string
+                                                  callback: () => ('')
+                                                }
+                                              }
+                                            } 
+                                        }
+                                      };
+                                        const config2 = {
+                                        type: 'line',
+                                        data: data2,
+                                        options: {
+                                          scales: {
+                                              x: {
+                                                ticks: {
+                                                  //option 2, use callback to change labels to empty string
+                                                  callback: () => ('')
+                                                }
+                                              }
+                                            } 
+                                        }
+                                      };
+                                      const config3 = {
+                                        type: 'line',
+                                        data: data3,
+                                        options: {
+                                          scales: {
+                                              x: {
+                                                ticks: {
+                                                  //option 2, use callback to change labels to empty string
+                                                  callback: () => ('')
+                                                }
+                                              }
+                                            } 
+                                        }
+                                      };
+                                     const config4 = {
+                                        type: 'line',
+                                        data: data4,
+                                        options: {
+                                          scales: {
+                                              x: {
+                                                ticks: {
+                                                  //option 2, use callback to change labels to empty string
+                                                  callback: () => ('')
+                                                }
+                                              }
+                                            } 
+                                        }
+                                      };
+                                      const config5 = {
+                                        type: 'line',
+                                        data: data5,
+                                        options: {
+                                          elements: {
+                                                point:{
+                                                    radius: 0
+                                                }
+                                            },
+                                            scales: {
+                                              x: {
+                                                ticks: {
+                                                  //option 2, use callback to change labels to empty string
+                                                  callback: () => ('')
+                                                }
+                                              }
+                                            }                                                                                       
+                                        }
+                                      };
+                                     const config6 = {
+                                        type: 'line',
+                                        data: data6,
+                                        options: {
+                                          scales: {
+                                              x: {
+                                                ticks: {
+                                                  //option 2, use callback to change labels to empty string
+                                                  callback: () => ('')
+                                                }
+                                              }
+                                            } 
+                                        }
+                                      };
+                                      const chartHeart = new Chart(
+                                          document.getElementById('heartRate'),
+                                          config
+                                      );
+
+                                      const chartBody = new Chart(
+                                          document.getElementById('bodyTemp'),
+                                          config2
+                                      );
+                                      const chartHumidity = new Chart(
+                                          document.getElementById('Humidity'),
+                                          config3
+                                      );
+                                      const chartEnviron = new Chart(
+                                          document.getElementById('Environment'),
+                                          config4
+                                      );
+                                      const chartECG= new Chart(
+                                          document.getElementById('ECG'),
+                                          config5
+                                      );  
+                                      const chartBlood= new Chart(
+                                          document.getElementById('bloodOxygen'),
+                                          config6
+                                      );                                                                            
+                                  </script>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <br>
+
+{% endblock %}
