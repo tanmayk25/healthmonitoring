@@ -17,7 +17,7 @@ Hardware:
 
 Back End:
 • Django
-• SQ-Lite
+• SQLite
 • AWS EC2 Cloud Service
 • Apache
 
